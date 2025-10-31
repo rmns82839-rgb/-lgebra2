@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resuelve Sistemas 2x2 - Álgebra Lineal</title>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> 
+    
+</head>
+<body>
+    <div class="container" id="printable-content"> 
+        
+        <div class="header-data" id="header-data">
+            <h2>Datos del Estudiante y la Materia</h2>
+            <div class="data-fields">
+                <label>Materia: <input type="text" id="materia" value="Álgebra Lineal" class="data-input"></label>
+                <label>Nombre: <input type="text" id="nombre" placeholder="Nombre del Estudiante" class="data-input"></label>
+                <label>Cédula: <input type="text" id="cedula" placeholder="Número de Identificación" class="data-input"></label>
+                <label>Carrera: <input type="text" id="carrera" placeholder="Carrera Cursada" class="data-input"></label>
+                <label>Sede: <input type="text" id="sede" placeholder="Sede Académica" class="data-input"></label>
+                <label>Jornada: <input type="text" id="jornada" placeholder="Diurna/Nocturna" class="data-input"></label>
+            </div>
+        </div>
+        
+        <h1>Sistema de Ecuaciones Lineales 2x2</h1>
+        
+        <div class="input-section" id="input-controls">
+            <h2>Ingresa el Sistema (Formato: a1x + b1y = c1)</h2>
+            <div class="equation-row">
+                <input type="number" id="a1" placeholder="a1" value="2">x + <input type="number" id="b1" placeholder="b1" value="1">y = <input type="number" id="c1" placeholder="c1" value="8"> (Ec. 1)
+            </div>
+            <div class="equation-row">
+                <input type="number" id="a2" placeholder="a2" value="3">x + <input type="number" id="b2" placeholder="b2" value="-1">y = <input type="number" id="c2" placeholder="c2" value="7"> (Ec. 2)
+            </div>
+
+            <div class="action-controls">
+                <label for="metodo">Selecciona el Método de Solución:</label>
+                <select id="metodo">
+                    <option value="graficacion">Gráfico</option>
+                    <option value="igualacion">Igualación</option>
+                    <option value="sustitucion">Sustitución</option>
+                    <option value="eliminacion">Eliminación (Reducción)</option>
+                    <option value="determinantes">Determinantes (Cramer)</option>
+                </select>
+                
+                <button onclick="resolverSistema()">Resolver</button>
+                <button onclick="graficarSistema()">Ver Graficación (GeoGebra)</button>
+                <button onclick="exportarAPDF()">🖨️ Exportar a PDF (Gráfica Incluida)</button>
+            </div>
+        </div>
+        
+        <div class="output-section">
+            <h2>✨ Solución y Proceso Paso a Paso ✨</h2>
+            
+            <div class="graph-wrapper">
+                <div id="graph-container" style="height: 400px;"></div>
+            </div>
+            
+            <div id="proceso">
+                </div>
+        </div>
+        
+        <div class="note" id="note-section">
+            <p>Ejemplo (Valores Iniciales): a1=2, b1=1, c1=8; a2=3, b2=-1, c2=7</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
